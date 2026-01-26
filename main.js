@@ -578,7 +578,7 @@ function changeModalImage(step) {
 document.addEventListener('keydown', function(e) {
     const modal = document.getElementById('imageModal');
     if (modal.style.display === 'flex') {
-        if (e.key === 'ArrowLeft' ) {
+        if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
             changeModalImage(-1);
         } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
             changeModalImage(1);
