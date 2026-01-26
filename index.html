@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQGE25QZ4C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BQGE25QZ4C');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon/icon-32.png" sizes="32x32">
+    <link rel="icon" href="icon/icon-16.png" sizes="16x16"> 
+    <link rel="apple-touch-icon" href="icon/icon-180.png">
+    <link rel="manifest" href="manifest.json">
+
+    <title>藥會辨｜藥物外觀快速辨識系統</title>
+    <meta name="description" content="整合衛福部食藥署的開放資料，支援刻字模糊搜尋與形狀顏色比對，讓藥物辨識更精準快速。">
+    <meta property="og:title" content="藥會辨｜藥物外觀快速辨識系統">
+    <meta property="og:image" content="https://magicakimo.github.io/pill-identifier/icon/icon-1024.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="icon/noimage.png" style="display: none;" aria-hidden="true">
+    <header>
+        <div class="container">
+            <h1><img src="https://magicakimo.github.io/pill-identifier/icon/icon-192.png" alt="藥會辨 Logo" class="logo" onerror="this.src='icon/noimage.png'"> 藥會辨</h1>
+            <p>整合衛福部食藥署的開放資料，支援刻字模糊搜尋與形狀顏色比對，讓藥物辨識更精準快速。</p>
+        </div>
+    </header>
+<div class="container">
+        <div class="main-content">
+            <aside class="search-panel">
+                <h2 style="margin-bottom: 20px; color: #333;">查詢條件</h2>
+                <form id="searchForm">
+                    <div class="search-grid">
+                        <div class="form-group">
+                            <label for="marks">藥品標記</label>
+                            <input type="text" id="marks" placeholder="輸入藥品上的文字或數字 (不需輸入特殊符號如 . 與 - 等，大小寫皆可，若無刻痕請留空)" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="med-name">藥名查詢</label>
+                            <input type="text" id="med-name" placeholder="輸入中英文商品名或藥品成分名" autocomplete="off">
+                        </div>
+                    <details style="margin: 10px; cursor: pointer;">
+                        <summary style="color: #667eea; font-weight: bold;">顯示進階搜尋 (商品名、學名、顏色、形狀...)</summary>
+                           <div class="advanced-fields" style="padding-top: 10px;">
+
+
+
+                                <div class="form-group">
+                                    <label>顏色 (可複選)</label>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox" name="color" value="透明"> 透明</label>
+                                        <label><input type="checkbox" name="color" value="黑"> 黑</label>
+                                        <label><input type="checkbox" name="color" value="灰"> 灰</label>
+                                        <label><input type="checkbox" name="color" value="白"> 白</label>
+                                        <label><input type="checkbox" name="color" value="粉"> 粉</label>
+                                        <label><input type="checkbox" name="color" value="紅"> 紅</label>
+                                        <label><input type="checkbox" name="color" value="橘"> 橘</label>
+                                        <label><input type="checkbox" name="color" value="棕"> 棕</label>
+                                        <label><input type="checkbox" name="color" value="黃"> 黃</label>
+                                        <label><input type="checkbox" name="color" value="綠"> 綠</label>
+                                        <label><input type="checkbox" name="color" value="藍綠"> 藍綠</label>
+                                        <label><input type="checkbox" name="color" value="藍"> 藍</label>
+                                        <label><input type="checkbox" name="color" value="紫"> 紫</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>形狀</label>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="shape" value="不限" checked> 不限</label>
+                                        <label><input type="radio" name="shape" value="膠囊"> 膠囊</label>
+                                        <label><input type="radio" name="shape" value="圓形"> 圓形</label>
+                                        <label><input type="radio" name="shape" value="三角形"> 三角形</label>
+                                        <label><input type="radio" name="shape" value="水滴形"> 水滴形</label>
+                                        <label><input type="radio" name="shape" value="四邊形"> 四邊形</label>
+                                        <label><input type="radio" name="shape" value="橢圓形"> 橢圓形</label>
+                                        <label><input type="radio" name="shape" value="五邊形"> 五邊形</label>
+                                        <label><input type="radio" name="shape" value="六邊形"> 六邊形</label>
+                                        <label><input type="radio" name="shape" value="八邊形"> 八邊形</label>
+                                        <label><input type="radio" name="shape" value="雙圓形"> 雙圓形</label>
+                                        <label><input type="radio" name="shape" value="其他"> 其他</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>刻痕</label>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="cut" value="不限" checked> 不限</label>
+                                        <label><input type="radio" name="cut" value="無"> 無</label>
+                                        <label><input type="radio" name="cut" value="直線"> 直線</label>
+                                        <label><input type="radio" name="cut" value="十字"> 十字</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="size">大小 (mm)</label>
+                                    <input type="number" id="size" placeholder="輸入藥品長度" min="0" step="0.1" autocomplete="off">
+                                </div>
+
+
+                           </div>
+                    </details>
+
+                    <div class="button-grid">
+                        <button type="button" class="btn" id="searchBtn">🔍 開始查詢</button>
+                        <button type="button" class="btn btn-secondary" id="resetBtn">🔄 清除條件</button>
+                    </div>
+                </form>
+            </aside>
+
+            <main id="results-area">
+                <div class="results-panel">
+                    <div class="results-header">
+                        <div class="results-count" id="resultsCount">請輸入查詢條件開始搜尋</div>
+                    </div>
+                    <div class="results-grid" id="resultsGrid">
+                        <div class="no-results">
+                            <p>👆 請在上方輸入查詢條件</p>
+                        </div>
+                    </div>
+                    <div class="load-more-container" id="loadMoreContainer" style="display:none;">
+                                <button type="button" class="btn btn-primary" id="loadMoreBtn" style="padding:10px 40px;">顯示更多藥品 ↓</button>
+                    </div>
+
+
+                </div>
+
+                <div class="info-panel">
+                    <h3>ℹ️ 使用說明</h3>
+                    <p><strong>資料來源：</strong>政府資料開放平台 - 藥品外觀資料集、健保用藥品項查詢項目檔</p>
+                    <p><strong>開發說明：</strong>本網站由 AI 協助生成。資料來源為衛福部提供的開放資料集，藉由藥品標記、外觀等資訊供醫療人員與民眾快速辨識藥品</p>
+                    <p><strong>作者：</strong>神奇地瓜泥</p>
+                    <p><strong>資料更新時間：</strong>2026/1/5</p>
+                    <p><strong>已知問題： 
+                        <ul style="margin-left: 20px; margin-top: 5px; font-size: 14px;">
+                            <li> STD、SANDOZ 系列的藥品不在資料庫中，請改用其他網站查詢</li>
+                            <!-- <li> SDZ 系列的藥品資料有缺漏 (已人工補上)</li> -->
+                        </ul>
+                       </strong></p>
+                    <p><strong>使用提示：</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 5px; font-size: 14px;">
+                        <li><b>支援藥品顏色、形狀、刻痕等條件查詢，並提供模糊比對機制，可協助辨識外觀相似之藥品</b>，包含文字相似 (0/O, 1/I/l) 與翻轉比對 (SH / HS)</li>
+                        <li>本系統目前為試用版本，搜尋結果會依相似度排序，預設顯示前 10 筆最相似藥品。</li>
+                        <li>點擊藥品圖片可放大檢視外觀，點擊中文藥名可直接連結至電子仿單。</li>
+                        <li>成分名稱係依資料集之商品名對照健保用藥品項進行比對，非健保品項或特殊品項可能未完整涵蓋。</li>
+                        <li>若使用上有任何問題或建議，歡迎填寫右下角回饋表單（約 1–2 分鐘）!! </li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </div>
+
+<!-- <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; justify-content:center; align-items:center;" onclick="this.style.display='none'">
+    <img id="modalImg" style="max-width:90%; max-height:90%; border:5px solid white;">
+</div> -->
+
+<div id="imageModal">
+    <div class="modal-overlay" onclick="closeModal()">
+        <span class="close" id="closeBtn" onclick="closeModal()">&times;</span>
+        <div class="modal-content-wrapper">
+            <button id="prevBtn" class="nav-btn" onclick="changeModalImage(-1)">&#10094;</button>
+            <img class="modal-content" id="modalImg" style="max-width:90%; max-height:90%; border:5px solid white;">
+            <button id="nextBtn" class="nav-btn" onclick="changeModalImage(1)">&#10095;</button>
+        </div>
+    </div>
+</div>
+
+<a href="https://forms.gle/t7TNFUtARCTXnd12A" target="_blank" class="floating-home" style="right: 80px;">問卷</a>
+<a href="#top" class="floating-home" onclick="document.getElementById('marks').focus()">TOP</a>
+
+
+<script src="main.js"></script>
+
+</body>
+</html>
+
+        
+
+
